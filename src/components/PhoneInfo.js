@@ -10,6 +10,15 @@ class PhoneInfo extends Component
         phoneNum: ''
     }
 
+    shouldComponentUpdate(nextProps, nextState)
+    {
+        // 기본적으로는 return true
+        if(this.state !== nextState)
+        {
+            return true;
+        }
+        return this.props.info !== nextProps.info;
+    }
 
     handleRemove = () => {
         const {info, onRemove } = this.props;
@@ -58,6 +67,8 @@ class PhoneInfo extends Component
             padding: '8px',
             margin: '8px'
         };
+        
+        console.log(name);
 
         return (
             <div style={style}>

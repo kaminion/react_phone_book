@@ -9,6 +9,8 @@ class PhoneInfoList extends Component
 
         if(!data) return null;
 
+        console.log("rendering list");
+
         const list = data.map(
             info => 
             <PhoneInfo key={info.id} 
