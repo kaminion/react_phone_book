@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 
 class PhoneBook extends Component
 {
+    input = React.createRef();
 
     state = {
         name : "",
@@ -20,6 +21,8 @@ class PhoneBook extends Component
         this.props.onCreate(this.state);
 
         this.setState({name:"", phoneNum : ""});
+
+        this.input.current.focus();
     }
 
 
@@ -31,6 +34,7 @@ class PhoneBook extends Component
                 placeholder="이름"
                 onChange={this.handleChange} 
                 value={this.state.name} 
+                ref={ this.input }
                 />
                 <input name="phoneNum" 
                 placeholder="전화번호"
